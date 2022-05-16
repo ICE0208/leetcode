@@ -1,6 +1,18 @@
 # https://leetcode.com/problems/two-sum/
 
+# 두번째 코드
 class Solution:
+    def twoSum(self, nums , target):
+        hashset = set(nums)
+        for i in range(len(nums)):
+            if target - nums[i] in hashset:
+                if i == nums.index(target - nums[i]):
+                    continue
+                return [i, nums.index(target - nums[i])]
+        
+
+# 첫번째 코드
+class OldSolution:
     def twoSum(self, nums=[], target=0):
         result = []
         for i in range(len(nums)):
