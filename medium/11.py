@@ -1,7 +1,25 @@
-import math
+# https://leetcode.com/problems/container-with-most-water/
 
+# ? 2022-05-21 재풀이
 class Solution:
-    def maxArea(self, height: List[int]) -> int:
+    def maxArea(self, height):
+        l, r = 0, len(height) - 1
+        
+        max_n = 0
+        cur_n = 0
+        while l<r:
+            cur_n = (r-l) * min(height[l], height[r])
+            max_n = max(max_n, cur_n)
+            
+            if height[l]<height[r]:
+                l+=1
+            else:
+                r-=1
+                
+        return max_n
+
+class OldSolution:
+    def maxArea(self, height):
         max = float("-inf")
         k=0
         for i in height:
