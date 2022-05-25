@@ -1,7 +1,18 @@
 # https://leetcode.com/problems/climbing-stairs/
 
-# 2차 풀이
+# 3차 풀이
 class Solution:
+    def climbStairs(self, n: int) -> int:
+
+        d = {}
+        d[1] = 1
+        d[2] = 2
+        for i in range(3, n+1):
+            d[i] = d[i-1] + d[i-2]
+        return d[n]
+
+# 2차 풀이
+class OldSolution:
     def climbStairs(self, n: int) -> int:
     
         fn_n = 1
